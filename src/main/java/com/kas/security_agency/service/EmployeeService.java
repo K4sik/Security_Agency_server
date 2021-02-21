@@ -14,4 +14,17 @@ public class EmployeeService {
     public Employee saveOrUpdateEmployee(Employee employee){
         return employeeRepository.save(employee);
     }
+
+    public Iterable<Employee> findAll(){
+        return employeeRepository.findAll();
+    }
+
+    public Employee findById(Long id){
+        return employeeRepository.getById(id);
+    }
+
+    public void deleteById(Long id){
+        Employee employee = findById(id);
+        employeeRepository.delete(employee);
+    }
 }
