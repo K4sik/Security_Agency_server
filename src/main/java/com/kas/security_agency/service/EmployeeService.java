@@ -1,6 +1,7 @@
 package com.kas.security_agency.service;
 
-import com.kas.security_agency.domain.Employee;
+import com.kas.security_agency.entity.Employee;
+import com.kas.security_agency.exception.EmployeeNotFoundException;
 import com.kas.security_agency.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class EmployeeService {
     }
 
     public Employee findById(Long id){
-        return employeeRepository.getById(id);
+        return employeeRepository.getById(id)
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee with id " + id + " was not found"));
     }
 
     public void deleteById(Long id){

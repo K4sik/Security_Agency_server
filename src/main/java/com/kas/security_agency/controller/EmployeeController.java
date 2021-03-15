@@ -1,8 +1,8 @@
 package com.kas.security_agency.controller;
 
-import com.kas.security_agency.domain.Employee;
+import com.kas.security_agency.entity.Employee;
 import com.kas.security_agency.service.EmployeeService;
-import lombok.Getter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/employee")
-@CrossOrigin
+//@CrossOrigin
 public class EmployeeController {
 
     @Autowired
