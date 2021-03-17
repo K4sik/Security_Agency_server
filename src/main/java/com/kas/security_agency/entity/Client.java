@@ -1,5 +1,6 @@
 package com.kas.security_agency.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Client")
@@ -42,6 +44,10 @@ public class Client {
 
     @NotBlank(message = "Address number cannot be blank")
     private String address;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Document> documents;
 
 
 }
