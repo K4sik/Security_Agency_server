@@ -41,4 +41,21 @@ public class PositionController {
     public Iterable<Position> getAllPositions(){
         return positionService.findAll();
     }
+
+    @GetMapping("/{position_id}")
+    public ResponseEntity<Position> getPositionById(@PathVariable Long position_id){
+        Position position = positionService.findById(position_id);
+        return new ResponseEntity<Position>(position, HttpStatus.OK);
+    }
+
+    @PutMapping("/{position_id}")
+    public ResponseEntity<?> putPositionById(@RequestBody Position position){
+        Position newPosition = positionService.saveOrUpdatePosition(position);
+        return new ResponseEntity<Position>(newPosition, HttpStatus.OK);
+    }
+    @DeleteMapping("/{position_id}")
+    public ResponseEntity<?> deletePositionById(@PathVariable Long position_id){
+        positionService.deleteById(position_id);
+        return new ResponseEntity<String>("Position deleted", HttpStatus.OK);
+    }
 }

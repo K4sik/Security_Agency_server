@@ -41,4 +41,22 @@ public class TeamController {
     public Iterable<Team> getAllPositions(){
         return teamService.findAll();
     }
+
+    @GetMapping("/{team_id}")
+    public ResponseEntity<?> getTeamById(@PathVariable Long team_id){
+        Team team = teamService.findById(team_id);
+        return new ResponseEntity<Team>(team, HttpStatus.OK);
+    }
+
+    @PutMapping("/{team_id}")
+    public ResponseEntity<?> putTeamById(@RequestBody Team team){
+        Team newTeam = teamService.saveOrUpdateTeam(team);
+        return new ResponseEntity<Team>(newTeam, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{team_id}")
+    public ResponseEntity<?> deleteTeamById(@PathVariable Long team_id){
+        teamService.deleteById(team_id);
+        return new ResponseEntity<String>("Team deleted", HttpStatus.OK);
+    }
 }
