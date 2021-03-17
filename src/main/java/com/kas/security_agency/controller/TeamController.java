@@ -21,7 +21,7 @@ public class TeamController {
     private TeamService teamService;
 
     @PostMapping("")
-    public ResponseEntity<?> addPosition(@Valid @RequestBody Team team, BindingResult bindingResult){
+    public ResponseEntity<?> addTeam(@Valid @RequestBody Team team, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){
             Map<String, String> errorMap = new HashMap<>(); //bindingResult.getFieldErrors()
@@ -38,7 +38,7 @@ public class TeamController {
     }
 
     @GetMapping("/all")
-    public Iterable<Team> getAllPositions(){
+    public Iterable<Team> getAllTeams(){
         return teamService.findAll();
     }
 
