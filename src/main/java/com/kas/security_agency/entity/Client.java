@@ -23,7 +23,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id", nullable = false)
     private ClientType clientType;
 
@@ -39,17 +39,17 @@ public class Client {
     @NotBlank(message = "Phone number cannot be blank")
     private String phone_number;
 
-//    @NotBlank(message = "Date of Birth cannot be blank")
+    //    @NotBlank(message = "Date of Birth cannot be blank")
     private Date birthday;
 
     @NotBlank(message = "Address number cannot be blank")
     private String address;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Document> documents;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Contract> contracts;
 

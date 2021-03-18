@@ -25,7 +25,7 @@ public class DocumentType {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @OneToMany(mappedBy = "documentType", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "documentType", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Document> documents;
 }

@@ -25,7 +25,7 @@ public class PaymentType {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @OneToMany(mappedBy = "paymentType", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "paymentType", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<ContractPayment> contractPayments;
 

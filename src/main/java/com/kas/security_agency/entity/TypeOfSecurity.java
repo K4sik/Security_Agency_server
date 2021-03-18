@@ -10,7 +10,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-
 @Entity
 @Table(name = "TypeOfSecurity")
 @AllArgsConstructor
@@ -28,7 +27,7 @@ public class TypeOfSecurity {
 
     private String description;
 
-    @OneToMany(mappedBy = "typeOfSecurity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "typeOfSecurity", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Contract> contracts;
 }

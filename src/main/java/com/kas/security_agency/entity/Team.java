@@ -27,7 +27,7 @@ public class Team {
 
     private String description;
 
-    @OneToMany(mappedBy = "team", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "team")
     @JsonBackReference
     private List<Employee> employees;
 }

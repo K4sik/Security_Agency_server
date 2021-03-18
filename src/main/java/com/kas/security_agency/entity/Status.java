@@ -27,7 +27,7 @@ public class Status {
 
     private String description;
 
-    @OneToMany(mappedBy = "status", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "status", fetch = FetchType.EAGER)
     @JsonBackReference
     private List<Contract> contracts;
 }

@@ -23,7 +23,7 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
@@ -33,13 +33,13 @@ public class Contract {
     @NotBlank(message = "Last name cannot be blank")
     private String last_name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
     private Date agreement_date;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "status_id", nullable = false)
     private Status status;
 
@@ -49,15 +49,15 @@ public class Contract {
 
     private double amount;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "type_of_security_id", nullable = false)
     private TypeOfSecurity typeOfSecurity;
 
-    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contract", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<ListOfProduct> listOfProducts;
-
-    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //
+    @OneToMany(mappedBy = "contract", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<ContractPayment> contractPayments;
 }

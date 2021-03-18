@@ -25,7 +25,7 @@ public class Position {
     @NotBlank(message = "Position cannot be blank")
     private String position;
 
-    @OneToMany(mappedBy = "position", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "position")
     @JsonBackReference
     private List<Employee> employees;
 

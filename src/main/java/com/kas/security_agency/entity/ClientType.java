@@ -25,7 +25,7 @@ public class ClientType {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @OneToMany(mappedBy = "clientType", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "clientType", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Client> clients;
 

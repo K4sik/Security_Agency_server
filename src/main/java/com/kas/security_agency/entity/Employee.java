@@ -25,7 +25,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "position_id", nullable = false)
 //    @NotBlank(message = "Position cannot be blank")
     private Position position;
@@ -36,7 +36,7 @@ public class Employee {
     @NotBlank(message = "Last name cannot be blank")
     private String last_name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "team_id", nullable = false)
 //    @NotBlank(message = "Team cannot be blank")
     private Team team;
@@ -44,13 +44,13 @@ public class Employee {
     @NotBlank(message = "Phone number cannot be blank")
     private String phone_number;
 
-//    @NotBlank(message = "Date of Birth cannot be blank")
+    //    @NotBlank(message = "Date of Birth cannot be blank")
     private Date birthday;
 
     @NotBlank(message = "Address number cannot be blank")
     private String address;
 
-    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Contract> contracts;
 

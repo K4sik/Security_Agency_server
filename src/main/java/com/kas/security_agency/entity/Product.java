@@ -31,7 +31,7 @@ public class Product {
     @NotBlank(message = "Name cannot be blank")
     private String provider;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<ListOfProduct> listOfProducts;
 
