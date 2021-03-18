@@ -1,5 +1,6 @@
 package com.kas.security_agency.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Contract")
@@ -50,5 +52,9 @@ public class Contract {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "type_of_security_id", nullable = false)
     private TypeOfSecurity typeOfSecurity;
+
+    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<ListOfProduct> listOfProducts;
 
 }
