@@ -57,4 +57,7 @@ public class Contract {
     @JsonBackReference
     private List<ListOfProduct> listOfProducts;
 
+    @OneToMany(mappedBy = "contract", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<ContractPayment> contractPayments;
 }

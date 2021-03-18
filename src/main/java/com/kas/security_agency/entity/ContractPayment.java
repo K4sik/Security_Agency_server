@@ -25,6 +25,10 @@ public class ContractPayment {
     @JoinColumn(name = "payment_type_id", nullable = false)
     private PaymentType paymentType;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "contract_id", nullable = false)
+    private Contract contract;
+
     @NotBlank(message = "Amount cannot be blank")
     private Double amount;
 
