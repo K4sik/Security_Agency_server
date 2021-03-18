@@ -49,5 +49,9 @@ public class Client {
     @JsonBackReference
     private List<Document> documents;
 
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Contract> contracts;
+
 
 }
