@@ -47,7 +47,8 @@ public class Employee {
     @NotBlank(message = "Address number cannot be blank")
     private String address;
 
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee")
     @JsonBackReference
     private List<Contract> contracts;
 
