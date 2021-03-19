@@ -1,6 +1,7 @@
 package com.kas.security_agency.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,8 @@ public class DocumentType {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @OneToMany(mappedBy = "documentType", fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToMany(mappedBy = "documentType")
     @JsonBackReference
     private List<Document> documents;
 }
