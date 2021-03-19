@@ -1,5 +1,6 @@
 package com.kas.security_agency.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +22,13 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_of_document", nullable = false)
+    @JsonBackReference
     private DocumentType documentType;
 
     @NotBlank(message = "Number cannot be blank")
