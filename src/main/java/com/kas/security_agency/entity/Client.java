@@ -1,6 +1,7 @@
 package com.kas.security_agency.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,15 +24,15 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "type_id", nullable = false)
     private ClientType clientType;
 
     @NotBlank(message = "First name cannot be blank")
     private String first_name;
 
-    @NotBlank(message = "Second name cannot be blank")
-    private String second_name;
+    @NotBlank(message = "Last name cannot be blank")
+    private String last_name;
 
     @NotBlank(message = "Company name cannot be blank")
     private String company_name;
@@ -45,10 +46,12 @@ public class Client {
     @NotBlank(message = "Address number cannot be blank")
     private String address;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Document> documents;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Contract> contracts;
