@@ -12,7 +12,7 @@ public class DocumentTypeService {
     @Autowired
     private DocumentTypeRepository documentTypeRepository;
 
-    public DocumentType saveOrUpdateDocument(DocumentType documentType){
+    public DocumentType saveOrUpdateDocumentType(DocumentType documentType){
         return documentTypeRepository.save(documentType);
     }
 
