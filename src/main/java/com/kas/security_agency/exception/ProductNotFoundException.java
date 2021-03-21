@@ -1,6 +1,7 @@
 package com.kas.security_agency.exception;
 
-public class ProductNotFoundException extends X {
-    public ProductNotFoundException(String s) {
+public class ProductNotFoundException extends RuntimeException {
+    public ProductNotFoundException(String message) {
+        super(message);
     }
 }
