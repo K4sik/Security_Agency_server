@@ -25,10 +25,10 @@ public class Product {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @NotBlank(message = "Name cannot be blank")
+//    @NotBlank(message = "Name cannot be blank")
     private double price;
 
-    @NotBlank(message = "Name cannot be blank")
+    @NotBlank(message = "Provider cannot be blank")
     private String provider;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
