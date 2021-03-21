@@ -26,7 +26,6 @@ public class DocumentType {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "documentType")
     @JsonBackReference
     private List<Document> documents;
