@@ -2,7 +2,6 @@ package com.kas.security_agency.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +28,7 @@ public class TypeOfSecurity {
 
     private String description;
 
-    @OneToMany(mappedBy = "typeOfSecurity", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "typeOfSecurity")
     @JsonBackReference
     private List<Contract> contracts;
 }

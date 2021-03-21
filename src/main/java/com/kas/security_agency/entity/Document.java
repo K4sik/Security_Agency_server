@@ -26,9 +26,8 @@ public class Document {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "type_of_document", nullable = false)
-    @JsonBackReference
     private DocumentType documentType;
 
     @NotBlank(message = "Number cannot be blank")

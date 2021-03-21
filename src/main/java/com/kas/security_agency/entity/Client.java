@@ -46,14 +46,12 @@ public class Client {
     @NotBlank(message = "Address number cannot be blank")
     private String address;
 
-//    @JsonIgnore
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonBackReference(value = "documents")
     private List<Document> documents;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    @JsonBackReference
+    @OneToMany(mappedBy = "client")
+    @JsonBackReference(value = "contracts")
     private List<Contract> contracts;
 
 
