@@ -29,7 +29,7 @@ public class ContractPayment {
     @JoinColumn(name = "contract_id", nullable = false)
     private Contract contract;
 
-    @NotBlank(message = "Amount cannot be blank")
-    private Double amount;
+//    @NotBlank(message = "Amount cannot be blank")
+    private double amount;
 
 }
