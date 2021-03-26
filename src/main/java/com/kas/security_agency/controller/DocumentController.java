@@ -1,7 +1,6 @@
 package com.kas.security_agency.controller;
 
 import com.kas.security_agency.entity.Document;
-import com.kas.security_agency.entity.Employee;
 import com.kas.security_agency.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,7 @@ public class DocumentController {
     @Autowired
     private DocumentService documentService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addDocument(@Valid @RequestBody Document document, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

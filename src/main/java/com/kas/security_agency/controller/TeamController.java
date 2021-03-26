@@ -20,7 +20,7 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addTeam(@Valid @RequestBody Team team, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

@@ -21,7 +21,7 @@ public class ContractPaymentController {
     @Autowired
     private ContractPaymentService contractPaymentService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addContractPayment(@Valid @RequestBody ContractPayment contractPayment, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

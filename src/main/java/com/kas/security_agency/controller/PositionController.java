@@ -20,7 +20,7 @@ public class PositionController {
     @Autowired
     private PositionService positionService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addPosition(@Valid @RequestBody Position position, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

@@ -23,7 +23,7 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addClient(@Valid @RequestBody Client client, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

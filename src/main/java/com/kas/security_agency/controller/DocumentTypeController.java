@@ -1,6 +1,5 @@
 package com.kas.security_agency.controller;
 
-import com.kas.security_agency.entity.Document;
 import com.kas.security_agency.entity.DocumentType;
 import com.kas.security_agency.service.DocumentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class DocumentTypeController {
     @Autowired
     private DocumentTypeService documentTypeService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addDocumentType(@Valid @RequestBody DocumentType documentType, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

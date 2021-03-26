@@ -22,7 +22,7 @@ public class TypeOfSecurityController {
     @Autowired
     private TypeOfSecurityService typeOfSecurityService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addTypeOfSecurity(@Valid @RequestBody TypeOfSecurity typeOfSecurity, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

@@ -1,8 +1,6 @@
 package com.kas.security_agency.controller;
 
-import com.kas.security_agency.entity.Client;
 import com.kas.security_agency.entity.ClientType;
-import com.kas.security_agency.service.ClientService;
 import com.kas.security_agency.service.ClientTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +21,7 @@ public class ClientTypeController {
     @Autowired
     private ClientTypeService clientTypeService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addClient(@Valid @RequestBody ClientType clientType, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

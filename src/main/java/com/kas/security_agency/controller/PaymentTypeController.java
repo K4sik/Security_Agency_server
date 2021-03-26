@@ -21,7 +21,7 @@ public class PaymentTypeController {
     @Autowired
     private PaymentTypeService paymentTypeService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addPaymentType(@Valid @RequestBody PaymentType paymentType, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

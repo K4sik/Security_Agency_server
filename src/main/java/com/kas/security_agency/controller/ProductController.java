@@ -21,7 +21,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addProduct(@Valid @RequestBody Product product, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

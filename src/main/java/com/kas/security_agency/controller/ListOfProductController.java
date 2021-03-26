@@ -21,7 +21,7 @@ public class ListOfProductController {
     @Autowired
     private ListOfProductService listOfProductService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addListOfProduct(@Valid @RequestBody ListOfProduct listOfProduct, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

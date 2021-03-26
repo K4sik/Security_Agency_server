@@ -1,7 +1,6 @@
 package com.kas.security_agency.controller;
 
 import com.kas.security_agency.entity.Contract;
-import com.kas.security_agency.entity.Employee;
 import com.kas.security_agency.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,7 @@ public class ContractController {
     @Autowired
     private ContractService contractService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addContract(@Valid @RequestBody Contract contract, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

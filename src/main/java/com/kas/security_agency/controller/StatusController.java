@@ -1,6 +1,5 @@
 package com.kas.security_agency.controller;
 
-import com.kas.security_agency.entity.Employee;
 import com.kas.security_agency.entity.Status;
 import com.kas.security_agency.service.StatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class StatusController {
     @Autowired
     private StatusService statusService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addStatus(@Valid @RequestBody Status status, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){

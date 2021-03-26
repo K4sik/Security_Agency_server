@@ -22,7 +22,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping("")
+    @PostMapping("/add")
     public ResponseEntity<?> addEmployee(@Valid @RequestBody Employee employee, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){
