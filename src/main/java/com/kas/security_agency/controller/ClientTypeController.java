@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/clientType")
+@RequestMapping("/api/client_type")
 @CrossOrigin
 public class ClientTypeController {
 
@@ -22,7 +22,7 @@ public class ClientTypeController {
     private ClientTypeService clientTypeService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addClient(@Valid @RequestBody ClientType clientType, BindingResult bindingResult){
+    public ResponseEntity<?> addClientType(@Valid @RequestBody ClientType clientType, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){
             Map<String, String> errorMap = new HashMap<>(); //bindingResult.getFieldErrors()
@@ -39,25 +39,25 @@ public class ClientTypeController {
     }
 
     @GetMapping("/all")
-    public Iterable<ClientType> getAllClients(){
+    public Iterable<ClientType> getAllClientTypes(){
         return clientTypeService.findAll();
     }
 
-    @GetMapping("/{clientType_id}")
-    public ResponseEntity<?> getClientById(@PathVariable Long clientType_id){
-        ClientType clientType = clientTypeService.findById(clientType_id);
+    @GetMapping("/{client_type_id}")
+    public ResponseEntity<?> getClientTypeById(@PathVariable Long client_type_id){
+        ClientType clientType = clientTypeService.findById(client_type_id);
         return new ResponseEntity<ClientType>(clientType, HttpStatus.OK);
     }
 
-    @PutMapping("/{clientType_id}")
-    public ResponseEntity<?> putClientById(@RequestBody ClientType clientType){
+    @PutMapping("/{client_type_id}")
+    public ResponseEntity<?> putClientTypeById(@RequestBody ClientType clientType){
         ClientType newClientType = clientTypeService.saveOrUpdateClientType(clientType);
         return new ResponseEntity<ClientType>(newClientType, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{clientType_id}")
-    public ResponseEntity<?> deleteClientById(@PathVariable Long clientType_id){
-        clientTypeService.deleteById(clientType_id);
+    @DeleteMapping("/{client_type_id}")
+    public ResponseEntity<?> deleteClientTypeById(@PathVariable Long client_type_id){
+        clientTypeService.deleteById(client_type_id);
         return new ResponseEntity<String>("Client deleted", HttpStatus.OK);
     }
 }

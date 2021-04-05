@@ -2,13 +2,14 @@ package com.kas.security_agency.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,8 @@ public class ClientType {
 
     @NotBlank(message = "Name cannot be blank")
     private String name;
+
+    private String description;
 
     @OneToMany(mappedBy = "clientType")
     @JsonBackReference
