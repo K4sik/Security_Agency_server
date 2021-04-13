@@ -13,7 +13,7 @@ public class ClientTypeService {
     private ClientTypeRepository clientTypeRepository;
 
     public ClientType saveOrUpdateClientType(ClientType clientType){
-        return  clientTypeRepository.save(clientType);
+        return clientTypeRepository.save(clientType);
     }
 
     public Iterable<ClientType> findAll(){

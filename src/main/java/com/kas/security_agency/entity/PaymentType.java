@@ -25,6 +25,8 @@ public class PaymentType {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
+    private String description;
+
     @OneToMany(mappedBy = "paymentType")
     @JsonBackReference
     private List<ContractPayment> contractPayments;

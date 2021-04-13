@@ -22,8 +22,10 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Position cannot be blank")
-    private String position;
+    @NotBlank(message = "Position name cannot be blank")
+    private String name;
+
+    private String description;
 
     @OneToMany(mappedBy = "position")
     @JsonBackReference

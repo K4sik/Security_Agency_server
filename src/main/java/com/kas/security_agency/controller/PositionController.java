@@ -15,6 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/position")
+@CrossOrigin
 public class PositionController {
 
     @Autowired

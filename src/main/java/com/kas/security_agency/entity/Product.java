@@ -31,6 +31,8 @@ public class Product {
     @NotBlank(message = "Provider cannot be blank")
     private String provider;
 
+    //add Description
+
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     @JsonBackReference
     private List<ListOfProduct> listOfProducts;

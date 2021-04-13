@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/paymentType")
+@RequestMapping("/api/payment_type")
 @CrossOrigin
 public class PaymentTypeController {
 
