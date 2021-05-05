@@ -3,6 +3,7 @@ package com.kas.security_agency.controller;
 import com.kas.security_agency.entity.Employee;
 import com.kas.security_agency.service.EmployeeService;
 
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,5 +62,10 @@ public class EmployeeController {
     public ResponseEntity<?> deleteEmployeeById(@PathVariable Long employee_id){
         employeeService.deleteById(employee_id);
         return new ResponseEntity<String>("Employee deleted", HttpStatus.OK);
+    }
+
+    @GetMapping("/report/{format}")
+    public String generateReport(@PathVariable String format) throws FileNotFoundException, JRException {
+        return employeeService.exportReport(format);
     }
 }
